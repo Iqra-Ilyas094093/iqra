@@ -1,26 +1,19 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
-import 'package:iqra/view/screen/desktop/home.dart';
-import 'package:iqra/view/screen/desktop/projects.dart';
-import 'package:iqra/view/widgets/hoverButton.dart';
-import 'package:iqra/view/widgets/social_icon.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:iqra/view/widgets/widgets.dart';
 
-class Desktop extends StatefulWidget {
-  const Desktop({super.key});
+class Navigation extends StatefulWidget {
+  const Navigation({super.key});
 
   @override
-  State<Desktop> createState() => _DesktopState();
+  State<Navigation> createState() => _NavigationState();
 }
 
-class _DesktopState extends State<Desktop> {
+class _NavigationState extends State<Navigation> {
   bool isExpanded = false;
   ScrollController scrollController = ScrollController();
-  int selectedIndex = 2;
+  int selectedIndex = 1;
   GlobalKey homekey = GlobalKey();
   GlobalKey skillkey = GlobalKey();
   GlobalKey projectkey = GlobalKey();
@@ -62,14 +55,13 @@ class _DesktopState extends State<Desktop> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size= MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.bgDark,
       body: Row(
         children: [
           SizedBox(
             height: double.infinity,
-            width: isExpanded ? size.width * 0.19 : size.width * 0.1,
+            width: isExpanded ? size.width * 0.17 : size.width * 0.1,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 15.0,
@@ -164,7 +156,7 @@ class _DesktopState extends State<Desktop> {
                                       ),
                                       Hoverbutton(
                                         icon: Icons.smart_toy,
-                                        name: 'Ai Prompt',
+                                        name: 'Ai Prompting',
                                         index: 4,
                                         filledIcon: Icons.smart_toy_outlined,
                                         size: size,
@@ -206,8 +198,8 @@ class _DesktopState extends State<Desktop> {
               controller: scrollController ,
               child: Column(
                 children: [
-                  Home(sectionkey: homekey, size: size),
-                  Projects(sectionkey: projectkey,size: size,),
+                  Container(key: homekey,width: double.infinity,color: Colors.blue,height: size.height,),
+                  Container(key: projectkey,width: double.infinity,color: Colors.red,height: size.height,),
                   Container(key: skillkey,width: double.infinity,color: Colors.purple,height: size.height,),
                   Container(key: aikey,width: double.infinity,color: Colors.yellow,height: size.height,),
                   Container(key: feedbackkey,width: double.infinity,color: Colors.indigo,height: size.height,),
