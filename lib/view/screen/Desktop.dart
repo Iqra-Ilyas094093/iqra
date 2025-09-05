@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
+import 'package:iqra/view/screen/desktop/ai_prompting.dart';
+import 'package:iqra/view/screen/desktop/feedback.dart';
 import 'package:iqra/view/screen/desktop/home.dart';
 import 'package:iqra/view/screen/desktop/projects.dart';
+import 'package:iqra/view/screen/desktop/skills.dart';
 import 'package:iqra/view/widgets/hoverButton.dart';
 import 'package:iqra/view/widgets/social_icon.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -31,7 +34,7 @@ class _DesktopState extends State<Desktop> {
     setState(() {
       selectedIndex = index;
     });
-    switch(index){
+    switch (index) {
       case 1:
         scrollTo(homekey);
         break;
@@ -47,11 +50,13 @@ class _DesktopState extends State<Desktop> {
       case 5:
         scrollTo(feedbackkey);
         break;
-
     }
   }
-  void scrollTo(GlobalKey key){
-    Scrollable.ensureVisible(key.currentContext!,duration: Duration(milliseconds: 300),curve: Curves.easeInOut);
+
+  void scrollTo(GlobalKey key) {
+    Scrollable.ensureVisible(
+        key.currentContext!, duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut);
   }
 
   void onToggleIcon() {
@@ -62,7 +67,9 @@ class _DesktopState extends State<Desktop> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       backgroundColor: AppColors.bgDark,
       body: Row(
@@ -203,14 +210,14 @@ class _DesktopState extends State<Desktop> {
             radius: Radius.circular(8),
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              controller: scrollController ,
+              controller: scrollController,
               child: Column(
                 children: [
                   Home(sectionkey: homekey, size: size),
-                  Projects(sectionkey: projectkey,size: size,),
-                  Container(key: skillkey,width: double.infinity,color: Colors.purple,height: size.height,),
-                  Container(key: aikey,width: double.infinity,color: Colors.yellow,height: size.height,),
-                  Container(key: feedbackkey,width: double.infinity,color: Colors.indigo,height: size.height,),
+                  Projects(sectionkey: projectkey, size: size,),
+                  Skills(size: size, sectionKey: skillkey),
+                  AiPrompting(sectionkey: aikey, size: size),
+                  feedbackSection(sectionkey: feedbackkey, size: size),
                 ],
               ),
             ),
