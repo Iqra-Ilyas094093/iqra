@@ -1,17 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
-import 'package:iqra/view/screen/desktop/ai_prompting.dart';
-import 'package:iqra/view/screen/desktop/feedback.dart';
-import 'package:iqra/view/screen/desktop/home.dart';
-import 'package:iqra/view/screen/desktop/projects.dart';
-import 'package:iqra/view/screen/desktop/skills.dart';
-import 'package:iqra/view/widgets/hoverButton.dart';
-import 'package:iqra/view/widgets/social_icon.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:iqra/view/screen/desktop/all.dart';
+import 'package:iqra/view/widgets/widgets.dart';
 
 class Desktop extends StatefulWidget {
   const Desktop({super.key});
@@ -76,7 +67,7 @@ class _DesktopState extends State<Desktop> {
         children: [
           SizedBox(
             height: double.infinity,
-            width: isExpanded ? size.width * 0.19 : size.width * 0.1,
+            width: isExpanded ? size.width * 0.15 : size.width * 0.1,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 15.0,
@@ -85,7 +76,7 @@ class _DesktopState extends State<Desktop> {
               child: Container(
                 alignment: Alignment.center,
                 height: 50,
-                width: isExpanded ? size.width * 0.17 : size.width * 0.1,
+                width: isExpanded ? size.width * 0.15 : size.width * 0.1,
                 decoration: BoxDecoration(
                   color: AppColors.bg,
                   borderRadius: BorderRadius.circular(12),
@@ -151,7 +142,7 @@ class _DesktopState extends State<Desktop> {
                                       ),
                                       Hoverbutton(
                                         icon: Icons.folder_copy,
-                                        name: 'Projects',
+                                        name: 'Project',
                                         index: 2,
                                         filledIcon: Icons.folder_copy_outlined,
                                         size: size,
@@ -171,7 +162,7 @@ class _DesktopState extends State<Desktop> {
                                       ),
                                       Hoverbutton(
                                         icon: Icons.smart_toy,
-                                        name: 'Ai Prompt',
+                                        name: 'Ai',
                                         index: 4,
                                         filledIcon: Icons.smart_toy_outlined,
                                         size: size,
@@ -181,7 +172,7 @@ class _DesktopState extends State<Desktop> {
                                       ),
                                       Hoverbutton(
                                         icon: Icons.feedback,
-                                        name: 'Feedback',
+                                        name: 'Review',
                                         index: 5,
                                         filledIcon: Icons.feedback_outlined,
                                         size: size,

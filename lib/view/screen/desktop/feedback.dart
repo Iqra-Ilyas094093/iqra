@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
+import 'package:iqra/utils/device_type_helper.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class feedbackSection extends StatelessWidget {
@@ -17,19 +18,18 @@ class feedbackSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       key: sectionkey,
       height: size.height,
       width: double.infinity,
-      // color: Colors.lightBlueAccent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 20),
             child: Container(
-              height: size.height,
-              width: size.width * 0.4,
+              height: size.height *0.85,
+              width: DeviceTypeHelper.isTablet(context)?size.width * 0.45:size.width * 0.35,
               decoration: BoxDecoration(
                 // color: Colors.purple,
                 borderRadius: BorderRadius.circular(20),
@@ -126,8 +126,8 @@ class feedbackSection extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 20),
             child: Container(
-              height: size.height,
-              width: size.width * 0.4,
+              height: size.height * 0.85,
+              width: DeviceTypeHelper.isTablet(context)?size.width * 0.45:size.width * 0.35,
               decoration: BoxDecoration(
                 color: Colors.lightGreen,
                 borderRadius: BorderRadius.circular(15),

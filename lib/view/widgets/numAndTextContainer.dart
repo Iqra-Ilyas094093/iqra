@@ -11,15 +11,15 @@ class Numandtextcontainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
-      width: 220,
+      width: 250,
       // color: Colors.purple,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(num,style: GoogleFonts.poppins(fontSize: 35,fontWeight: FontWeight.bold,color: AppColors.text),),
+          Text(num,style: GoogleFonts.poppins(fontSize: 30,fontWeight: FontWeight.bold,color: AppColors.text),),
           SizedBox(width: 6,),
-          Text(text,style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.bold,color: AppColors.text,height: 1),softWrap: true,overflow: TextOverflow.ellipsis,)
+          Text(text,style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.bold,color: AppColors.text,height: 1),softWrap: true,overflow: TextOverflow.ellipsis,)
         ],
       ),
     );

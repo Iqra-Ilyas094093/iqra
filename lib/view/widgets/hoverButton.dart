@@ -8,11 +8,11 @@ class Hoverbutton extends StatefulWidget {
   final int index;
   final IconData filledIcon;
   final Size size;
-  VoidCallback onIconPress;
+  final VoidCallback onIconPress;
   final bool isExpanded;
   final int selectedIndex;
 
-  Hoverbutton({
+  const Hoverbutton({
     super.key,
     required this.icon,
     required this.name,
@@ -47,13 +47,13 @@ class _HoverbuttonState extends State<Hoverbutton> {
         hoverDuration: Duration(seconds: 1),
         onTap: widget.onIconPress,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           child: AnimatedContainer(
             duration: Duration(milliseconds: 100),
             curve: Curves.easeInOut,
             transform: Matrix4.translationValues(0, isHovered ? -5 : 0, 0),
             height: 40,
-            width: widget.isExpanded ? widget.size.width * 0.15 : widget.size.width * 0.09,
+            width: widget.isExpanded ? widget.size.width * 0.13 : widget.size.width * 0.09,
             decoration: BoxDecoration(
               border: Border.all(
                 color: isHovered ? AppColors.border : AppColors.borderMuted,
@@ -66,9 +66,9 @@ class _HoverbuttonState extends State<Hoverbutton> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 widget.selectedIndex == widget.index
-                    ? Icon(widget.icon, color: isHovered?Colors.white:AppColors.textMuted)
-                    : Icon(widget.filledIcon, color: isHovered?Colors.white:AppColors.textMuted),
-                widget.isExpanded ? SizedBox(width: 10) : SizedBox(),
+                    ? widget.isExpanded?SizedBox():Icon(widget.icon, color: isHovered?Colors.white:AppColors.textMuted)
+                    : widget.isExpanded?SizedBox():Icon(widget.filledIcon, color: isHovered?Colors.white:AppColors.textMuted),
+                widget.isExpanded ? SizedBox(width: 8) : SizedBox(),
                 widget.isExpanded
                     ? Text(
                         widget.name,
@@ -77,6 +77,7 @@ class _HoverbuttonState extends State<Hoverbutton> {
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
+                  overflow: TextOverflow.ellipsis,
                       )
                     : SizedBox(),
               ],

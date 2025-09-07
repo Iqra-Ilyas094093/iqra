@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iqra/view/screen/master.dart';
-import 'package:iqra/view/screen/navigation.dart';
 
 void main() {
   runApp(const MyApp());

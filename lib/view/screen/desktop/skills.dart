@@ -1,8 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iqra/utils/colors.dart';
+import 'package:iqra/utils/device_type_helper.dart';
+import 'package:iqra/view/widgets/skills_carousel_builder.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class Skills extends StatefulWidget {
@@ -33,88 +32,27 @@ class _SkillsState extends State<Skills> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       key: widget.sectionKey,
       height: widget.size.height,
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          GradientText(
+
+          DeviceTypeHelper.isTablet(context)?SizedBox():GradientText(
             'Skills', colors: [Colors.lightGreen, Colors.lightGreenAccent],
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.bold, fontSize: 40,),),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: 190,
-                width: 600,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: double.infinity,
-                      child: Center(
-                        child: Text('Languages & Framework',style: GoogleFonts.poppins(fontSize: 23,color: AppColors.text,fontWeight: FontWeight.w500),),
-                      ),
-                    ),
-                    CarouselSlider.builder(
-                      itemCount: images.length,
-                      itemBuilder: (context,index,realIndex){
-                        return AspectRatio(
-                          aspectRatio: 1,
-                          child: SvgPicture.asset(images[index],fit: BoxFit.cover,),
-                        );
-                      },
-                      options: CarouselOptions(
-                        height: 120,
-                      viewportFraction: 0.2,
-                        autoPlay: true,
-                        enlargeFactor: 0.3,
-                        scrollPhysics: BouncingScrollPhysics(),
-                        enlargeCenterPage: true,
-                        enableInfiniteScroll: true,
-                        autoPlayInterval: Duration(seconds: 2),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 190,
-                width: 600,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: double.infinity,
-                      child: Center(
-                        child: Text('Tools I Use',style: GoogleFonts.poppins(fontSize: 23,color: AppColors.text,fontWeight: FontWeight.w500),),
-                      ),
-                    ),
-                    CarouselSlider.builder(
-                      itemCount: toolImages.length,
-                      itemBuilder: (context,index,realIndex){
-                        return AspectRatio(
-                          aspectRatio: 1,
-                          child: SvgPicture.asset(toolImages[index],fit: BoxFit.cover,),
-                        );
-                      },
-                      options: CarouselOptions(
-                        height: 120,
-                      viewportFraction: 0.2,
-                        autoPlay: true,
-                        enlargeFactor: 0.3,
-                        scrollPhysics: BouncingScrollPhysics(),
-                        enlargeCenterPage: true,
-                        enableInfiniteScroll: true,
-                        autoPlayInterval: Duration(seconds: 2),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              DeviceTypeHelper.isTablet(context)?GradientText(
+                'Skills', colors: [Colors.lightGreen, Colors.lightGreenAccent],
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.bold, fontSize: 40,),):SizedBox(),
+              SkillsCarouselBuilder(imagesList: images, headlineText: 'Languages & Framework'),
+              SkillsCarouselBuilder(imagesList: toolImages, headlineText: 'Tools I use'),
             ],
           ),
         ],

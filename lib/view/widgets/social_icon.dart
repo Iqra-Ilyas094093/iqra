@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SocialIcon extends StatefulWidget {
   final IconData icon;
 
-  SocialIcon({super.key, required this.icon});
+  const SocialIcon({super.key, required this.icon});
 
   @override
   State<SocialIcon> createState() => _SocialIconState();

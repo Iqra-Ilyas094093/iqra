@@ -4,9 +4,9 @@ import 'package:iqra/utils/colors.dart';
 import 'package:iqra/view/widgets/urlButton.dart';
 
 class ProjectBox extends StatelessWidget {
-  final String ImageUrl;
+  final String imageUrl;
   final String name;
-  const ProjectBox({super.key, required this.ImageUrl, required this.name,});
+  const ProjectBox({super.key, required this.imageUrl, required this.name,});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,13 @@ class ProjectBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               height: 200,
               // color: Colors.red,
               child: ClipRRect(
                   borderRadius: BorderRadiusGeometry.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
-                  child: Image.network(ImageUrl,fit: BoxFit.cover,)),
+                  child: Image.network(imageUrl,fit: BoxFit.cover,)),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 10),

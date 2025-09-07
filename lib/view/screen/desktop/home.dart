@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
-import 'package:iqra/view/widgets/numAndTextContainer.dart';
-import 'package:iqra/view/widgets/social_icon.dart';
+import 'package:iqra/utils/device_type_helper.dart';
+import 'package:iqra/view/widgets/widgets.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class Home extends StatelessWidget {
@@ -18,29 +17,27 @@ class Home extends StatelessWidget {
     List<String> num = ['1', '500', '300', '15'];
     List<String> text = [
       'Years of\nExperience',
-      'Connects',
-      'Commits',
+      'Connect',
+      'Commit',
       'Practice\nProjects',
     ];
-    return Container(
+    return SizedBox(
       height: size.height,
       width: double.infinity,
-      // color: Colors.yellow,
       key: sectionkey,
       child: Row(
         children: [
           //main about section
           Padding(
-            padding: const EdgeInsets.only(left: 40, top: 50,),
-            child: Container(
+            padding: const EdgeInsets.only(left: 40,),
+            child: SizedBox(
               height: double.infinity,
               width: size.width * 0.4,
-              // color: Colors.grey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 15,),
+                  DeviceTypeHelper.isTablet(context)?SizedBox():SizedBox(height: 30,),
                   Container(
                     height: 200,
                     width: 200,
@@ -69,7 +66,7 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   GradientText(
-                    'Flutter Developer',
+                    DeviceTypeHelper.isTablet(context)?'Flutter Dev':'Flutter Developer',
                     colors: [
                       Colors.lightGreen,
                       Colors.lightGreen.withOpacity(0.5),
@@ -88,6 +85,8 @@ class Home extends StatelessWidget {
                       fontSize: 14,
                     ),
                     softWrap: true,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 10),
                   SizedBox(
@@ -155,56 +154,53 @@ class Home extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
-                left: 10,right: 15,top: 30,bottom: 10
+                left: 5,right: 5,top: 50,bottom: 10
               ),
-              child: Container(
-                // color: Colors.blue,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 80),
-                    GradientText(
-                      'About me',
-                      colors: [Colors.lightGreen, Colors.lightGreenAccent],
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35,
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DeviceTypeHelper.isTablet(context)?SizedBox(height: 10,):SizedBox(height: 40),
+                  GradientText(
+                    'About me',
+                    colors: [Colors.lightGreen, Colors.lightGreenAccent],
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35,
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      "I'm a Flutter developer crafting fast, elegant mobile apps with a focus on clean UI, smooth UX, and performance. Driven by curiosity and a love for learning, I constantly explore new tools and techniques to improve my work. I enjoy building intuitive experiences that people genuinely enjoy using. Let’s create something impactful together.",
-                      style: GoogleFonts.poppins(
-                        fontSize: 15,
-                        color: AppColors.textMuted,
-                      ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "I'm a Flutter developer crafting fast, elegant mobile apps with a focus on clean UI, smooth UX, and performance. Driven by curiosity and a love for learning, I constantly explore new tools and techniques to improve my work. I enjoy building intuitive experiences that people genuinely enjoy using. Let’s create something impactful together.",
+                    style: GoogleFonts.poppins(
+                      fontSize: 15,
+                      color: AppColors.textMuted,
                     ),
-                    SizedBox(height: 15),
-                    SizedBox(
-                      height: 150,
-                      width: double.infinity,
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 2,
-                          mainAxisSpacing: 2,
-                          mainAxisExtent: 75,
-                          // childAspectRatio: 90,
-                        ),
-                        itemCount: num.length,
-                        itemBuilder: (context, index) {
-                          return Numandtextcontainer(
-                            num: num[index],
-                            text: text[index],
-                          );
-                        },
+                  ),
+                  SizedBox(height: 15),
+                  SizedBox(
+                    height: 150,
+                    width: double.infinity,
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 2,
+                        mainAxisSpacing: 2,
+                        mainAxisExtent: 75,
+                        // childAspectRatio: 90,
                       ),
+                      itemCount: num.length,
+                      itemBuilder: (context, index) {
+                        return Numandtextcontainer(
+                          num: num[index],
+                          text: text[index],
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
