@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
+import 'package:iqra/utils/device_type_helper.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class Promptcontainer extends StatefulWidget {
@@ -24,7 +25,7 @@ class _PromptcontainerState extends State<Promptcontainer> {
         isHovered = false;
       }),
       child: Container(
-        height: 90,
+        height: 120,
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.lightGreen,width: 2),
@@ -55,8 +56,17 @@ class _PromptcontainerState extends State<Promptcontainer> {
                 ),
               ),
               Spacer(),
-              viewButton('View Prompt'),
-              viewButton('Result'),
+              DeviceTypeHelper.isMobile(context)?Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [ viewButton('View Prompt'),
+                  viewButton('Result'),],
+              ):Row(
+                children: [
+                  viewButton('View Prompt'),
+                  viewButton('Result'),
+                ],
+              )
+
 
             ],
           ),

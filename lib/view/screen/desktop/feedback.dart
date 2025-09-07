@@ -25,11 +25,11 @@ class feedbackSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Padding(
+          DeviceTypeHelper.isMobile(context)?SizedBox():Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 20),
             child: Container(
               height: size.height *0.85,
-              width: DeviceTypeHelper.isTablet(context)?size.width * 0.45:size.width * 0.35,
+              width: DeviceTypeHelper.isTablet(context)?size.width * 0.45:size.width * 0.4,
               decoration: BoxDecoration(
                 // color: Colors.purple,
                 borderRadius: BorderRadius.circular(20),
@@ -123,89 +123,91 @@ class feedbackSection extends StatelessWidget {
             ),
           ),
           //enter your valuable feedback
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 20),
-            child: Container(
-              height: size.height * 0.85,
-              width: DeviceTypeHelper.isTablet(context)?size.width * 0.45:size.width * 0.35,
-              decoration: BoxDecoration(
-                color: Colors.lightGreen,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Enter your valuable Feedback,',
-                      softWrap: true,
-                      style: GoogleFonts.poppins(
-                        fontSize: 35,
-                        color: AppColors.text,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    SizedBox(height: 8,),
-                    TextFormField(
-                      style: GoogleFonts.poppins(color: Colors.white),
-                      cursorColor: Colors.lightGreen,
-                      maxLines: 1,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: AppColors.bg,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none
-                        ),
-                        hintText: 'Enter name',
-                        hintStyle: GoogleFonts.poppins(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
+              child: Container(
+                height: size.height * 0.85,
+                width:double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.lightGreen,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Enter your valuable Feedback,',
+                        softWrap: true,
+                        style: GoogleFonts.poppins(
+                          fontSize: 35,
+                          color: AppColors.text,
+                          fontWeight: FontWeight.bold
                         ),
                       ),
-                    ),
-                    SizedBox(height: 12,),
-                    TextFormField(
-                      style: GoogleFonts.poppins(color: Colors.white),
-                      cursorColor: Colors.lightGreen,
-                      maxLines: 4,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: AppColors.bg,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none
-                        ),
-                        hintText: 'Enter your feedback here...',
-                        hintStyle: GoogleFonts.poppins(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 12,),
-                    Container(
-                      height: 40,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.white,
-                      ),
-                      child: Center(
-                        child: GradientText(
-                          'Submit',
-                          colors: [Colors.lightGreen, Colors.lightGreen],
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      SizedBox(height: 8,),
+                      TextFormField(
+                        style: GoogleFonts.poppins(color: Colors.white),
+                        cursorColor: Colors.lightGreen,
+                        maxLines: 1,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: AppColors.bg,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide.none
+                          ),
+                          hintText: 'Enter name',
+                          hintStyle: GoogleFonts.poppins(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                    )
-                  ],
+                      SizedBox(height: 12,),
+                      TextFormField(
+                        style: GoogleFonts.poppins(color: Colors.white),
+                        cursorColor: Colors.lightGreen,
+                        maxLines: 4,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: AppColors.bg,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide.none
+                          ),
+                          hintText: 'Enter your feedback here...',
+                          hintStyle: GoogleFonts.poppins(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 12,),
+                      Container(
+                        height: 40,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white,
+                        ),
+                        child: Center(
+                          child: GradientText(
+                            'Submit',
+                            colors: [Colors.lightGreen, Colors.lightGreen],
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

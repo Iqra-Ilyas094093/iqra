@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 import 'package:iqra/utils/colors.dart';
+import 'package:iqra/utils/device_type_helper.dart';
 
 class SkillsCarouselBuilder extends StatelessWidget {
   final  List<String> imagesList;
@@ -12,8 +13,8 @@ class SkillsCarouselBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 190,
-      width: 550,
+      height: DeviceTypeHelper.isMobile(context)?140:190,
+      width: DeviceTypeHelper.isMobile(context)?400:550,
       child: Column(
         children: [
           SizedBox(
@@ -32,7 +33,7 @@ class SkillsCarouselBuilder extends StatelessWidget {
               );
             },
             options: CarouselOptions(
-              height: 120,
+              height: DeviceTypeHelper.isMobile(context)?80:120,
               viewportFraction: 0.2,
               autoPlay: true,
               enlargeFactor: 0.3,

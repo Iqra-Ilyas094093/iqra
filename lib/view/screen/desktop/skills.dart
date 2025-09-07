@@ -40,14 +40,14 @@ class _SkillsState extends State<Skills> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
 
-          DeviceTypeHelper.isTablet(context)?SizedBox():GradientText(
+          DeviceTypeHelper.isTablet(context)|| DeviceTypeHelper.isMobile(context)?SizedBox():GradientText(
             'Skills', colors: [Colors.lightGreen, Colors.lightGreenAccent],
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.bold, fontSize: 40,),),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              DeviceTypeHelper.isTablet(context)?GradientText(
+              DeviceTypeHelper.isTablet(context) || DeviceTypeHelper.isMobile(context)?GradientText(
                 'Skills', colors: [Colors.lightGreen, Colors.lightGreenAccent],
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.bold, fontSize: 40,),):SizedBox(),
