@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
 import 'package:iqra/utils/device_type_helper.dart';
@@ -49,7 +48,7 @@ class Home extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.lightGreen.withOpacity(0.5),
+                            color: Colors.lightGreen.withValues(alpha: 0.5),
                             spreadRadius: 5,
                             blurRadius: 15,
                           ),
@@ -72,8 +71,8 @@ class Home extends StatelessWidget {
                       DeviceTypeHelper.isTablet(context)?'Flutter Dev':'Flutter Developer',
                       colors: [
                         Colors.lightGreen,
-                        Colors.lightGreen.withOpacity(0.5),
-                        Colors.lightGreen.withOpacity(0.9),
+                        Colors.lightGreen.withValues(alpha: 0.5),
+                        Colors.lightGreen.withValues(alpha: 0.9),
                       ],
                       style: GoogleFonts.poppins(
                         fontSize: 32,
@@ -130,23 +129,8 @@ class Home extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 40,
-                            width: 200,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 3),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SocialIcon(icon: FontAwesomeIcons.linkedin),
-                                  SocialIcon(icon: FontAwesomeIcons.github),
-                                  SocialIcon(icon: FontAwesomeIcons.discord),
-                                  SocialIcon(icon: FontAwesomeIcons.x),
-                                  SocialIcon(icon: Icons.mail),
-                                ],
-                              ),
-                            ),
-                          ),
+                          //socialIcons
+                          SocialLinksBox(),
                         ],
                       ),
                     )

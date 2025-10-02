@@ -1,4 +1,4 @@
-export 'Mobile.dart';
+export 'mobile.dart';
 export 'master.dart';
-export 'Desktop.dart';
-export 'Tablet.dart';
+export 'desktop.dart';
+export 'tablet.dart';

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
+import 'package:iqra/utils/url_launchers.dart';
 import 'package:iqra/view/widgets/urlButton.dart';
 
 class ProjectBox extends StatelessWidget {
   final String imageUrl;
   final String name;
-  const ProjectBox({super.key, required this.imageUrl, required this.name,});
+  final String githublink;
+  final String livePreviewLink;
+  const ProjectBox({super.key, required this.imageUrl, required this.name, required this.githublink, required this.livePreviewLink,});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +36,12 @@ class ProjectBox extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Urlbutton(text: 'View Code'),
-                Urlbutton(text: 'Live Preview'),
+                Urlbutton(text: 'View Code',ontap: ()async{
+                  await UrlLaunchers.launchUrlLink(githublink);
+                },),
+                Urlbutton(text: 'Live Preview',ontap: ()async{
+                  await UrlLaunchers.launchUrlLink(livePreviewLink);
+                },),
               ],
             )
           ],

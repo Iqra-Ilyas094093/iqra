@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
 import 'package:iqra/utils/network_images.dart';
+import 'package:iqra/utils/social_links.dart';
 import 'package:iqra/view/widgets/widgets.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
@@ -40,7 +41,7 @@ class Projects extends StatelessWidget {
                 dividerColor: Colors.transparent,
                 dividerHeight: 0,
                 indicator: BoxDecoration(
-                  color: Colors.lightGreenAccent.withOpacity(0.2),
+                  color: Colors.lightGreenAccent.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(20)
                 ),
                   indicatorSize: TabBarIndicatorSize.tab,
@@ -74,9 +75,9 @@ class Projects extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App'),
-                      ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone'),
-                      ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone'),
+                      ProjectBox(imageUrl: NetworkImages.foodRecipeApp, name: 'Food Recipe App',githublink: SocialLinks.foodRecipeCloneGithub,livePreviewLink: SocialLinks.foodRecipeClonePreview,),
+                      ProjectBox(imageUrl: NetworkImages.helpoApp, name: 'Donation app Clone',githublink: SocialLinks.helpoGithub,livePreviewLink: SocialLinks.helpoPreview,),
+                      // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                     ],
                   ),
                 ),
@@ -94,9 +95,9 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App'),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone'),
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone'),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                      ],
                    ),
                  ),
@@ -114,9 +115,9 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App'),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone'),
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone'),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                      ],
                    ),
                  ),
@@ -134,9 +135,9 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App'),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone'),
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone'),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                      ],
                    ),
                  ),
