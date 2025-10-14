@@ -26,9 +26,9 @@ class _SocialLinksBoxState extends State<SocialLinksBox> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SocialIcon(icon: FontAwesomeIcons.linkedin,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.linkedInLink);}),
-            SocialIcon(icon: FontAwesomeIcons.github,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.linkedInLink);}),
-            SocialIcon(icon: FontAwesomeIcons.discord,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.linkedInLink);}),
-            SocialIcon(icon: FontAwesomeIcons.x,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.linkedInLink);}),
+            SocialIcon(icon: FontAwesomeIcons.github,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.githubLink);}),
+            SocialIcon(icon: FontAwesomeIcons.discord,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.discordLink);}),
+            SocialIcon(icon: FontAwesomeIcons.x,onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.xLink);}),
             SocialIcon(icon: Icons.mail,onTap: ()async{await UrlLaunchers.launchEmailLink(SocialLinks.mailLink);}),
           ],
         ),

@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
 import 'package:iqra/utils/prompt_file.dart';
+import 'package:iqra/utils/social_links.dart';
+import 'package:iqra/utils/url_launchers.dart';
 import 'package:iqra/view/widgets/promptContainer.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
@@ -39,7 +41,9 @@ class _AiPromptingState extends State<AiPrompting> {
           Promptcontainer(
             num: '1',
             text: 'Text prompt',
-            previewFunction: () {},
+            previewFunction: () async{
+              await UrlLaunchers.launchUrlLink(SocialLinks.promptPreview);
+            },
             promptFunction: () {
               promptDialog(Prompts.textPrompt);
             },
@@ -47,7 +51,9 @@ class _AiPromptingState extends State<AiPrompting> {
           Promptcontainer(
             num: '2',
             text: 'Code Prompt',
-            previewFunction: () {},
+            previewFunction: () async {
+              await UrlLaunchers.launchUrlLink(SocialLinks.promptPreview);
+            },
             promptFunction: () {
               promptDialog(Prompts.codePrompt);
             },
@@ -55,7 +61,9 @@ class _AiPromptingState extends State<AiPrompting> {
           Promptcontainer(
             num: '3',
             text: 'Full Ui App in 1 Prompt',
-            previewFunction: () {},
+            previewFunction: () async {
+              await UrlLaunchers.launchUrlLink(SocialLinks.promptPreview);
+            },
             promptFunction: () {
               promptDialog(Prompts.advanceUiPrompt);
             },
@@ -71,7 +79,7 @@ class _AiPromptingState extends State<AiPrompting> {
       builder: (context) {
         return Dialog(
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(25.0),
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 300),
               child: Column(
