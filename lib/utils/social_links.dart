@@ -11,5 +11,6 @@ class SocialLinks {
   static const String foodRecipeClonePreview = 'https://food-recipe-olive-five.vercel.app/';
   static const String helpoGithub = 'https://github.com/Iqra-Ilyas094093/helpo';
   static const String helpoPreview = 'https://helpo-drab.vercel.app/';
+  static const String promptPreview = 'https://prompt-engineering-beryl.vercel.app/';
 
 }

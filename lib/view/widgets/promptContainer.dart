@@ -7,7 +7,9 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 class Promptcontainer extends StatefulWidget {
   final String num;
   final String text;
-  const Promptcontainer({super.key, required this.num, required this.text});
+  final VoidCallback  promptFunction;
+  final VoidCallback previewFunction;
+  const Promptcontainer({super.key, required this.num, required this.text, required this.promptFunction, required this.previewFunction});
 
   @override
   State<Promptcontainer> createState() => _PromptcontainerState();
@@ -58,12 +60,12 @@ class _PromptcontainerState extends State<Promptcontainer> {
               Spacer(),
               DeviceTypeHelper.isMobile(context)?Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [ viewButton('View Prompt'),
-                  viewButton('Result'),],
+                children: [ viewButton('View Prompt',widget.promptFunction),
+                  viewButton('Result',widget.previewFunction),],
               ):Row(
                 children: [
-                  viewButton('View Prompt'),
-                  viewButton('Result'),
+                  viewButton('View Prompt',widget.promptFunction),
+                  viewButton('Result',widget.previewFunction),
                 ],
               )
 
@@ -74,23 +76,26 @@ class _PromptcontainerState extends State<Promptcontainer> {
       ),
     );
   }
-  Widget viewButton(String text){
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Container(
-        height: 50,
-        width: 120,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.lightGreen.shade800,
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: GoogleFonts.poppins(
-              fontSize: 15,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
+  Widget viewButton(String text,VoidCallback onPress){
+    return GestureDetector(
+      onTap: onPress,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Container(
+          height: 50,
+          width: 120,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.lightGreen.shade800,
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: GoogleFonts.poppins(
+                fontSize: 15,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ),

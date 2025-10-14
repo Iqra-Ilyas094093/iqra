@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqra/utils/colors.dart';
 import 'package:iqra/utils/device_type_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-class feedbackSection extends StatelessWidget {
+class feedbackSection extends StatefulWidget {
   final GlobalKey sectionkey;
   final Size size;
 
@@ -17,10 +20,47 @@ class feedbackSection extends StatelessWidget {
   });
 
   @override
+  State<feedbackSection> createState() => _feedbackSectionState();
+}
+
+class _feedbackSectionState extends State<feedbackSection> {
+
+
+List<Map<String,dynamic>> feedbackList = [];
+TextEditingController nameController = TextEditingController();
+TextEditingController feedbackController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchFeedback();
+  }
+
+
+Future<void> fetchFeedback()async{
+  final response = await Supabase.instance.client.from('feedback').select().order('created_at',ascending: false);
+  print(response);
+  setState(() {
+    feedbackList = List<Map<String,dynamic>>.from(response);
+  });
+}
+
+Future<void> submitFeedback()async{
+  await Supabase.instance.client.from('feedback').insert({
+    'name':nameController.text,
+    'feedback':feedbackController.text,
+  });
+  nameController.clear();
+  feedbackController.clear();
+  await fetchFeedback();
+}
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      key: sectionkey,
-      height: size.height,
+      key: widget.sectionkey,
+      height: widget.size.height,
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -28,8 +68,8 @@ class feedbackSection extends StatelessWidget {
           DeviceTypeHelper.isMobile(context)?SizedBox():Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 20),
             child: Container(
-              height: size.height *0.85,
-              width: DeviceTypeHelper.isTablet(context)?size.width * 0.45:size.width * 0.4,
+              height: widget.size.height *0.85,
+              width: DeviceTypeHelper.isTablet(context)?widget.size.width * 0.45:widget.size.width * 0.4,
               decoration: BoxDecoration(
                 // color: Colors.purple,
                 borderRadius: BorderRadius.circular(20),
@@ -56,8 +96,8 @@ class feedbackSection extends StatelessWidget {
                           PointerDeviceKind.mouse,
                         },
                       ),
-                      child: ListView.builder(
-                        itemCount: 10,
+                      child: feedbackList.isEmpty?Center(child: const Text('No feedback yet. Be the first')):ListView.builder(
+                        itemCount: feedbackList.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(
@@ -89,7 +129,7 @@ class feedbackSection extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Username',
+                                            feedbackList[index]['name']??'',
                                             style: GoogleFonts.poppins(
                                               fontSize: 15,
                                               color: AppColors.text,
@@ -97,7 +137,7 @@ class feedbackSection extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Improve the color scheme a bit morehfsfasdkhfskhdfkshfkshdfkhsdfkshdfkhsdfkhsfssdljfajslfjs;ljfsldjfsldjfsjd',
+                                            feedbackList[index]['feedback']??'',
                                             style: GoogleFonts.poppins(
                                               fontSize: 12,
                                               color: AppColors.textMuted,
@@ -127,7 +167,7 @@ class feedbackSection extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
               child: Container(
-                height: size.height * 0.85,
+                height: widget.size.height * 0.85,
                 width:double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.lightGreen,
@@ -149,6 +189,7 @@ class feedbackSection extends StatelessWidget {
                       ),
                       SizedBox(height: 8,),
                       TextFormField(
+                        controller: nameController,
                         style: GoogleFonts.poppins(color: Colors.white),
                         cursorColor: Colors.lightGreen,
                         maxLines: 1,
@@ -169,6 +210,7 @@ class feedbackSection extends StatelessWidget {
                       ),
                       SizedBox(height: 12,),
                       TextFormField(
+                        controller: feedbackController,
                         style: GoogleFonts.poppins(color: Colors.white),
                         cursorColor: Colors.lightGreen,
                         maxLines: 4,
@@ -188,20 +230,27 @@ class feedbackSection extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 12,),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
-                        ),
-                        child: Center(
-                          child: GradientText(
-                            'Submit',
-                            colors: [Colors.lightGreen, Colors.lightGreen],
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                      GestureDetector(
+                        onTap: (){
+                          if(nameController.text.isNotEmpty && feedbackController.text.isNotEmpty){
+                           submitFeedback();
+                          }
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.white,
+                          ),
+                          child: Center(
+                            child: GradientText(
+                              'Submit',
+                              colors: [Colors.lightGreen, Colors.lightGreen],
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),
