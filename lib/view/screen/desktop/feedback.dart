@@ -119,6 +119,7 @@ Future<void> submitFeedback()async{
                                     CircleAvatar(
                                       radius: 25,
                                       backgroundColor: Colors.grey,
+                                      child: Icon(Icons.person_outline,color: Colors.white,),
                                     ),
                                     SizedBox(width: 5),
                                     Expanded(

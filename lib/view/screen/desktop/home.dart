@@ -5,6 +5,9 @@ import 'package:iqra/utils/device_type_helper.dart';
 import 'package:iqra/view/widgets/widgets.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
+import '../../../utils/social_links.dart';
+import '../../../utils/url_launchers.dart';
+
 class Home extends StatelessWidget {
   final GlobalKey sectionkey;
   final Size size;
@@ -117,12 +120,15 @@ class Home extends StatelessWidget {
                                     size: 16,
                                   ),
                                   SizedBox(width: 1),
-                                  Text(
-                                    'Download CV',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.text,
+                                  GestureDetector(
+                                    onTap: ()async{await UrlLaunchers.launchUrlLink(SocialLinks.resumeLink);},
+                                    child: Text(
+                                      'Download CV',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.text,
+                                      ),
                                     ),
                                   ),
                                 ],

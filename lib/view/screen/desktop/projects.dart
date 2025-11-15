@@ -95,9 +95,9 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: 'https://github.com/Iqra-Ilyas094093/weather-App',livePreviewLink: 'https://weather-app-iqra.vercel.app/',),
+                       // ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
+                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                      ],
                    ),
                  ),
@@ -115,9 +115,9 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
+                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: 'https://github.com/Iqra-Ilyas094093/messenger-App',livePreviewLink: 'https://messenger-app-iqra.vercel.app/',),
+                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                      ],
                    ),
                  ),
@@ -135,9 +135,9 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.movieHubClone, name: 'Movie Hub',githublink: 'https://github.com/Iqra-Ilyas094093/movie-hub',livePreviewLink: 'https://movie-hub-iqra.vercel.app/',),
+                       // ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
+                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
                      ],
                    ),
                  ),

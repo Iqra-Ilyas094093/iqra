@@ -3,8 +3,9 @@ class SocialLinks {
   static const String githubLink = 'https://github.com/Iqra-Ilyas094093';
   static const String linkedInLink = 'https://www.linkedin.com/in/iqra-ilyas-236abb255/';
   static const String xLink = 'https://x.com/iqrailyas094093';
-  static const String discordLink = '';
+  static const String instagramLink = 'https://www.instagram.com/flutterwithiqrailyas/';
   static const String mailLink = 'workflow094093@gmail.com';
+  static const String resumeLink = 'https://drive.google.com/file/d/1A_2jvyrMxfStYPGhBnfOUcTHKus50ygt/preview';
 
   //project links
   static const String foodRecipeCloneGithub = 'https://github.com/Iqra-Ilyas094093/food_recipe';
