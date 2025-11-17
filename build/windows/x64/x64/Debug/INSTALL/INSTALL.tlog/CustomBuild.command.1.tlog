@@ -1,0 +1,10 @@
+^C:\USERS\IQRA\STUDIOPROJECTS\IQRA\BUILD\WINDOWS\X64\CMAKEFILES\198700B83496C9F51B8ED4D06AB1BC5F\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
