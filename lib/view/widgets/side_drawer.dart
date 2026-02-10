@@ -71,7 +71,7 @@ class SideDrawer extends StatelessWidget {
                         child: ConstrainedBox(
                           constraints: BoxConstraints(
                             minHeight: constraints
-                                .maxHeight, // make it fill sidebar height
+                                .maxHeight,
                           ),
                           child: IntrinsicHeight(
                             child: Column(
@@ -109,22 +109,12 @@ class SideDrawer extends StatelessWidget {
                                   selectedIndex: drawerProvider.selectedIndex,
                                 ),
                                 Hoverbutton(
-                                  icon: Icons.smart_toy,
-                                  name: 'Ai',
-                                  index: 4,
-                                  filledIcon: Icons.smart_toy_outlined,
-                                  size: size,
-                                  onIconPress: () => drawerProvider.onIconPress(4),
-                                  isExpanded: drawerProvider.isExpanded,
-                                  selectedIndex: drawerProvider.selectedIndex,
-                                ),
-                                Hoverbutton(
                                   icon: Icons.feedback,
                                   name: 'Review',
-                                  index: 5,
+                                  index: 4,
                                   filledIcon: Icons.feedback_outlined,
                                   size: size,
-                                  onIconPress: () => drawerProvider.onIconPress(5),
+                                  onIconPress: () => drawerProvider.onIconPress(4),
                                   isExpanded: drawerProvider.isExpanded,
                                   selectedIndex: drawerProvider.selectedIndex,
                                 ),

@@ -31,11 +31,9 @@ class SideDrawerProvider extends ChangeNotifier {
         scrollTo(skillKey);
         break;
       case 4:
-        scrollTo(aiKey);
-        break;
-      case 5:
         scrollTo(feedbackKey);
         break;
+
     }
   }
 

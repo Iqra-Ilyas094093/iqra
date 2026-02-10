@@ -38,7 +38,7 @@ class Mobile extends StatelessWidget {
               Home(sectionkey: provider.homeKey, size: size),
               Projects(sectionkey: provider.projectKey, size: size,),
               Skills(size: size, sectionKey: provider.skillKey),
-              AiPrompting(sectionkey:provider.aiKey, size: size),
+              // AiPrompting(sectionkey:provider.aiKey, size: size),
               feedbackSection(sectionkey: provider.feedbackKey, size: size),
             ],
           ),

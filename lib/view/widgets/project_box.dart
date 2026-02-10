@@ -27,7 +27,7 @@ class ProjectBox extends StatelessWidget {
               // color: Colors.red,
               child: ClipRRect(
                   borderRadius: BorderRadiusGeometry.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
-                  child: Image.network(imageUrl,fit: BoxFit.cover,)),
+                  child: Image.network(imageUrl,fit: BoxFit.fitWidth,)),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 10),

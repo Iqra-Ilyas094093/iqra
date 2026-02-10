@@ -17,7 +17,7 @@ class Projects extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Container(
         key: sectionkey,
         child: Column(
@@ -54,7 +54,6 @@ class Projects extends StatelessWidget {
                   tabs: [
                 Tab(text: 'Ui Clone',),
                 Tab(text: 'Api Integration',),
-                Tab(text: 'Supabase',),
                 Tab(text: 'Full App',),
               ]),
             ),
@@ -75,10 +74,9 @@ class Projects extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ProjectBox(imageUrl: NetworkImages.foodRecipeApp, name: 'Food Recipe App',githublink: SocialLinks.foodRecipeCloneGithub,livePreviewLink: SocialLinks.foodRecipeClonePreview,),
                       ProjectBox(imageUrl: NetworkImages.helpoApp, name: 'Donation app Clone',githublink: SocialLinks.helpoGithub,livePreviewLink: SocialLinks.helpoPreview,),
-                      // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
-                    ],
+                      ProjectBox(imageUrl: NetworkImages.foodRecipeApp, name: 'Food Recipe App',githublink: SocialLinks.foodRecipeCloneGithub,livePreviewLink: SocialLinks.foodRecipeClonePreview,),
+                  ],
                   ),
                 ),
               ),
@@ -95,49 +93,28 @@ class Projects extends StatelessWidget {
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
-                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: 'https://github.com/Iqra-Ilyas094093/weather-App',livePreviewLink: 'https://weather-app-iqra.vercel.app/',),
-                       // ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
-                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
-                     ],
-                   ),
-                 ),
-               ),
-               ScrollConfiguration(
-                 behavior: MaterialScrollBehavior().copyWith(
-                     dragDevices: {
-                       PointerDeviceKind.touch,
-                       PointerDeviceKind.mouse,
-                     }
-                 ),
-                 child: SingleChildScrollView(
-                   controller: scrollController,
-                   scrollDirection: Axis.horizontal,
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: '',livePreviewLink: '',),
-                       ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: 'https://github.com/Iqra-Ilyas094093/messenger-App',livePreviewLink: 'https://messenger-app-iqra.vercel.app/',),
-                       // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
-                     ],
-                   ),
-                 ),
-               ),
-               ScrollConfiguration(
-                 behavior: MaterialScrollBehavior().copyWith(
-                     dragDevices: {
-                       PointerDeviceKind.touch,
-                       PointerDeviceKind.mouse,
-                     }
-                 ),
-                 child: SingleChildScrollView(
-                   controller: scrollController,
-                   scrollDirection: Axis.horizontal,
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
                        ProjectBox(imageUrl: NetworkImages.movieHubClone, name: 'Movie Hub',githublink: 'https://github.com/Iqra-Ilyas094093/movie-hub',livePreviewLink: 'https://movie-hub-iqra.vercel.app/',),
-                       // ProjectBox(imageUrl: NetworkImages.whatsappApp, name: 'WhatsApp Clone',githublink: '',livePreviewLink: '',),
+                       ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Weather App',githublink: 'https://github.com/Iqra-Ilyas094093/weather-App',livePreviewLink: 'https://weather-app-iqra.vercel.app/',),
+
                        // ProjectBox(imageUrl: NetworkImages.weatherApp, name: 'Facebook Clone',githublink: '',livePreviewLink: '',),
+                     ],
+                   ),
+                 ),
+               ),
+               ScrollConfiguration(
+                 behavior: MaterialScrollBehavior().copyWith(
+                     dragDevices: {
+                       PointerDeviceKind.touch,
+                       PointerDeviceKind.mouse,
+                     }
+                 ),
+                 child: SingleChildScrollView(
+                   controller: scrollController,
+                   scrollDirection: Axis.horizontal,
+                   child: Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                       ProjectBox(imageUrl: NetworkImages.arcadienCafeApp, name: 'Arcadian Cafe',githublink: 'https://github.com/Iqra-Ilyas094093/ArcadianCafe',livePreviewLink: 'https://arcadian-cafe-omega.vercel.app/',),
                      ],
                    ),
                  ),
